@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Payment System Backend.iml" filepath="$PROJECT_DIR$/.idea/modules/Payment System Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Payment_System_Backend_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Payment_System_Backend_main.iml" group="Payment System Backend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Payment_System_Backend_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Payment_System_Backend_test.iml" group="Payment System Backend" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+<h2>Login Form</h2>
+<form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+  <p>
+    <label>Branch : </label>
+    <select formControlName="branch" name="branch">
+      <option *ngFor="let branch of branches" [value]='branch'>{{branch}}</option>
+    </select>
+  </p>
+  <p>
+    <label>Username : </label>
+    <input formControlName="email" type="email" placeholder="Your email">
+  </p>
+  <p>
+    <label>Password : </label>
+    <input formControlName="password" type="password" placeholder="Your password">
+  </p>
+  <button type="submit">Log in</button>
+</form>

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
 
+import { appRouterModule } from './app.route';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    appRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

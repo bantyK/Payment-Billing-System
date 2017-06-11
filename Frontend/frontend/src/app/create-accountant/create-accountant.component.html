@@ -1,0 +1,26 @@
+<form [formGroup]="createAccountantForm" (ngSubmit)="createAdmin($event)">
+  <p>
+    <label>Branch : </label>
+    <select formControlName="branch" name="branch">
+      <option *ngFor="let branch of branches" [value]='branch'>{{branch}}</option>
+    </select>
+  </p>
+  <p>
+    <label>Username : </label>
+    <input formControlName="username" type="text">
+  </p>
+  <p>
+    <label>Password : </label>
+    <input formControlName="password" type="text">
+  </p>
+  <p>
+    <label>Date of Joining : </label>
+    <input formControlName="date_of_joining" type="text">
+  </p>
+  <p>
+    <label>Salary : </label>
+    <input formControlName="salary" type="text">
+  </p>
+
+  <button type="submit">Submit</button>
+</form>

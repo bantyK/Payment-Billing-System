@@ -23,8 +23,10 @@ export class AdminLoginComponent {
                 data => {
                   console.log(data);
                   this.isValidAdmin = data;
-                  this.router.navigateByUrl('/search');
-                }
+                  if (data === true){
+                    this.router.navigateByUrl('/search');
+                  }
+                } 
               );
   }
 }

@@ -1,7 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { SearchStudentComponent } from './search-student/search-student.component';
+import { SearchAccountantComponent } from './search-accountant/search-accountant.component';
+import { CreateAccountantComponent } from './create-accountant/create-accountant.component';
 
 const routes: Routes = [
     {
@@ -19,7 +20,11 @@ const routes: Routes = [
     },
     {
         path: 'search',
-        component: SearchStudentComponent
+        component: SearchAccountantComponent
+    },
+    {
+        path: 'create_accountant',
+        component: CreateAccountantComponent
     }
 
 ];

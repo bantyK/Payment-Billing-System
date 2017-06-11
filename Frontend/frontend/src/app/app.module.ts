@@ -9,12 +9,16 @@ import { StudentLoginComponent } from './student-login/student-login.component';
 
 import { appRouterModule } from './app.route';
 import { SearchStudentComponent } from './search-student/search-student.component';
+import { SearchAccountantComponent } from './search-accountant/search-accountant.component';
+import { CreateAccountantComponent } from './create-accountant/create-accountant.component';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLoginComponent,
     StudentLoginComponent,
-    SearchStudentComponent
+    SearchStudentComponent,
+    SearchAccountantComponent,
+    CreateAccountantComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import java.util.List;
 @CrossOrigin
 public class MainController {
 
+    AdminService adminService = new AdminServiceImpl();
 
     public MainController() {
     }
@@ -23,8 +24,13 @@ public class MainController {
     @RequestMapping(method = RequestMethod.POST, value = "/admin_login")
     public String loginAdmin(@RequestBody LoginInformation loginInformation) {
         System.out.println(loginInformation.getUsername() + " " + loginInformation.getPassword());
-        AdminService adminService = new AdminServiceImpl();
         return adminService.isValidAdmin(loginInformation);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "create_admin")
+    public String createAdmin(@RequestBody Admin admin) {
+        adminService.addAdmin(admin);
+        return "True";
     }
 
 }

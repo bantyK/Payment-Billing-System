@@ -49,7 +49,18 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void addAdmin(Admin admin) {
-
+        String sqlQuery = "INSERT into AdminTable (username,password,date_of_joining,salary) " +
+                "values (?,?,?,?)";
+        try {
+            preparedStatement = connection.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1,admin.getUsername());
+            preparedStatement.setString(2,admin.getPassword());
+            preparedStatement.setDate(3,new java.sql.Date(admin.getDateOfJoining().getDate()));
+            preparedStatement.setInt(4,admin.getSalary());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

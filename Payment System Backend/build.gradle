@@ -37,5 +37,6 @@ dependencies {
     testCompile("junit:junit")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.3.RELEASE'
     compile 'mysql:mysql-connector-java'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
 }

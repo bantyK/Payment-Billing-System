@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../http-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
@@ -9,18 +10,21 @@ import { HttpService } from '../http-service.service';
 })
 export class AdminLoginComponent {
 
+  isValidAdmin: string;
   public loginForm = new FormGroup({
   email: new FormControl('email', Validators.required),
   password: new FormControl('password', Validators.required)
 });
-  constructor(private _http: HttpService) { }
+  constructor(private _http: HttpService, private router: Router) { }
 
   doLogin(event) {
-    console.log(event);
-    console.log(this.loginForm.value.email);
-    this._http.checkIfAdminCredentialsAreValid(this.loginForm.value.email,this.loginForm.value.password)
+    this._http.checkIfAdminCredentialsAreValid(this.loginForm.value.email, this.loginForm.value.password)
               .subscribe(
-                data => console.log(data)
+                data => {
+                  console.log(data);
+                  this.isValidAdmin = data;
+                  this.router.navigateByUrl('/search');
+                }
               );
   }
 }

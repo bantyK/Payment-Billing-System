@@ -9,4 +9,5 @@
       <input formControlName="password" type="password" placeholder="Your password">
     </p>
   <button type="submit">Log in</button>
+  <p *ngIf = "isValidAdmin === false" id="incorrect-login-message">Sorry Username or password is not correct.</p>
 </form>

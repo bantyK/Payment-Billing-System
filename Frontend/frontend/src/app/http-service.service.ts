@@ -10,14 +10,13 @@ export class HttpService {
     constructor (private _http: Http) { }
 
     checkIfAdminCredentialsAreValid(email, password) {
-        console.log(email + " " + password);
         var adminInfoJson = JSON.stringify({'username': email, 'password': password});
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
         return this._http.post(this.adminCredentialsValidationURL, adminInfoJson, {
             headers: headers
-        }).map(res => res);
+        }).map(res => res.json());
     }
 
     doGet() {

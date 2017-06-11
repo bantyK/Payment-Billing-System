@@ -8,11 +8,13 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
 
 import { appRouterModule } from './app.route';
+import { SearchStudentComponent } from './search-student/search-student.component';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLoginComponent,
-    StudentLoginComponent
+    StudentLoginComponent,
+    SearchStudentComponent
   ],
   imports: [
     BrowserModule,

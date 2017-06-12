@@ -33,4 +33,14 @@ public class MainController {
         return "True";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "admins")
+    public List<Admin> getAllAdmins() {
+        return adminService.getAllAdmin();
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
+    public String deleteAdmin(@PathVariable("id") int id){
+        return String.valueOf(id);
+    }
+
 }

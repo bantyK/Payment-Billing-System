@@ -8,6 +8,8 @@ export class HttpService {
 
     adminCredentialsValidationURL = 'http://localhost:8080/admin_login';
     createAdminURL = 'http://localhost:8080/create_admin';
+    getAllAdminsURL = 'http://localhost:8080/admins';
+    deleteAdminURL = 'http://localhost:8080/delete/';
 
     constructor (private _http: Http) { }
 
@@ -33,5 +35,13 @@ export class HttpService {
         return this._http.post(this.createAdminURL, requestBody, {
             headers: headers
         }).map(res => res);
+    }
+
+    getAllAccountants() {
+        return this._http.get(this.getAllAdminsURL).map(result => result.json());
+    }
+
+    deleteAdmin(adminId: number) {
+        return this._http.delete(this.deleteAdmin + '' + adminId).map(result => result);
     }
 }

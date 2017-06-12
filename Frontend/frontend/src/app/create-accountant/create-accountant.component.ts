@@ -37,11 +37,10 @@ export class CreateAccountantComponent {
     this.dateOfJoining = this.createAccountantForm.value.date_of_joining;
     this.salary = this.createAccountantForm.value.salary;
 
-    this.admin = new Admin(this.username, this.password, new Date(this.dateOfJoining),
+    this.admin = new Admin(1, this.username, this.password, new Date(this.dateOfJoining),
                                 +this.salary);
     this._http.createNewAccountant(this.admin).subscribe(
       data => console.log(data)
     );
   }
-
 }

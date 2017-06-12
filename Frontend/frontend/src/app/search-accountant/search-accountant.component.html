@@ -7,7 +7,24 @@
   </p>
   <p>
     <label>Find : </label>
-    <input id="accoutant-key" formControlName="key" type="text" (keyup) = "onKeyUp($event)">
+    <input id="accoutant-key" formControlName="key" type="text" (keyup) = "onKeyUp($event)" text="">
   </p>
   <a routerLink="/create_accountant" id="create-accountant">Create new Accountant</a>
 </form>
+<br><br>
+<div>
+  <table id="admin-table">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor = "let admin of admins">
+      <td>{{ admin.id }}</td>
+      <td>{{ admin.username }}</td>
+      <td>{{ admin.salary }}</td>
+      <td><a   (click) = "deleteAdmin(admin)">Delete</a></td>
+    </tr>
+  </table>
+</div>

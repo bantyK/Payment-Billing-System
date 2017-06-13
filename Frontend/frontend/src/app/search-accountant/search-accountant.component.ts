@@ -28,8 +28,7 @@ private admins: Admin[] = [];
           const currentData = data[i];
           console.log();
           if (currentData.username.startsWith(this.findForm.value.key)) {
-            const admin = new Admin(currentData.id, currentData.username, currentData.password, currentData.dateOfJoining,
-                                    currentData.salary);
+            const admin = new Admin(currentData.id, currentData.username, currentData.password, currentData.dateOfJoining, currentData.salary);
             this.admins.push(admin);
           }
         }
@@ -39,7 +38,17 @@ private admins: Admin[] = [];
 
   deleteAdmin(admin: Admin) {
     this._http.deleteAdmin(admin.getId()).subscribe(
-      data => console.log(data)
+      data => {
+        this.admins = [];
+        for (let i = 0; i < data.length; i++) {
+          const currentData = data[i];
+          console.log();
+          if (currentData.username.startsWith(this.findForm.value.key)) {
+            const admin = new Admin(currentData.id, currentData.username, currentData.password, currentData.dateOfJoining, currentData.salary);
+            this.admins.push(admin);
+          }
+        }
+      }
     );
   }
 }

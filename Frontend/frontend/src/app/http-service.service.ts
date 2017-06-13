@@ -42,6 +42,8 @@ export class HttpService {
     }
 
     deleteAdmin(adminId: number) {
-        return this._http.delete(this.deleteAdmin + '' + adminId).map(result => result);
+        var body = 'id='+adminId;
+        var headers = new Headers();
+        return this._http.post(this.deleteAdminURL+'/'+adminId,body,headers).map(result => result.json());
     }
 }

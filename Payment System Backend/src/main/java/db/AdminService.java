@@ -10,7 +10,11 @@ import java.util.List;
  */
 public interface AdminService {
     List<Admin> getAllAdmin();
+
+    Admin getAdmin(int id);
+
     void addAdmin(Admin admin);
+
     void deleteAdmin(int id);
 
     String isValidAdmin(LoginInformation loginInformation);

@@ -48,6 +48,30 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public Admin getAdmin(int id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM AdminTable WHERE id = ?");
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.first()) {
+                return null;
+            }
+            Admin admin = new Admin(
+                    resultSet.getInt("id"),
+                    resultSet.getString("username"),
+                    resultSet.getString("password"),
+                    resultSet.getDate("date_of_joining"),
+                    resultSet.getInt("salary")
+            );
+
+            return admin;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public void addAdmin(Admin admin) {
         String sqlQuery = "INSERT into AdminTable (username,password,date_of_joining,salary) " +
                 "values (?,?,?,?)";
@@ -63,8 +87,19 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
+
     @Override
     public void deleteAdmin(int id) {
+        Admin adminToBeDeleted = getAdmin(id);
+        if(adminToBeDeleted != null) {
+            String sqlDeleteStatement = "DELETE FROM AdminTable WHERE id = " + id;
+            try{
+                PreparedStatement preparedStatement = connection.prepareStatement(sqlDeleteStatement);
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
